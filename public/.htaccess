@@ -1,0 +1,7 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Block hidden files such as .htaccess or .git
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

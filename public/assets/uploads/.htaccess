@@ -1,0 +1,5 @@
+# Uploaded files are images only: never run scripts from this folder.
+<FilesMatch "\.(?i:php\d?|phtml|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+Options -ExecCGI -Indexes
