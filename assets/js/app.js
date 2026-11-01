@@ -494,6 +494,34 @@
     });
   }
 
+  /* ---------- Background music (opt-in, never autoplays) ----------
+     Shows a small button only if assets/audio/music.mp3 exists. */
+  function musicButton() {
+    const src = img('audio/music.mp3');
+    fetch(src, { method: 'HEAD' }).then((res) => {
+      if (!res.ok) return;
+      const audio = new Audio(src);
+      audio.loop = true;
+      audio.volume = 0.5;
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'music-btn';
+      const update = () => {
+        const on = !audio.paused;
+        btn.innerHTML = `<span aria-hidden="true">${on ? '❚❚' : '♪'}</span><span class="music-label">${on ? 'Pause music' : 'Play music'}</span>`;
+        btn.setAttribute('aria-label', on ? 'Pause music' : 'Play music');
+        btn.setAttribute('aria-pressed', String(on));
+      };
+      btn.addEventListener('click', () => {
+        if (audio.paused) audio.play().catch(() => {}); else audio.pause();
+      });
+      audio.addEventListener('play', update);
+      audio.addEventListener('pause', update);
+      update();
+      document.body.appendChild(btn);
+    }).catch(() => { /* no music file: no button */ });
+  }
+
   // Expose a few helpers for admin.js
   SR.util = { $, $$, esc, money, url, img, store, fmtDate, flash, showAlert, params };
 
@@ -504,6 +532,7 @@
       el.innerHTML = SR.social.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.name)}" title="${esc(s.name)}"><img src="${img(s.icon)}" alt=""></a>`).join('');
     });
     bindUi();
+    musicButton();
     pages[PAGE]?.();
   }
 })();
