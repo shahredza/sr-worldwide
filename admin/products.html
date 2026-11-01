@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Products · SR Worldwide Admin</title>
+  <link rel="icon" href="../assets/images/srlogo.jpg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+</head>
+<body class="admin" data-root="../" data-page="admin-products">
+<header class="admin-bar" id="admin-bar"></header>
+<main id="main" class="admin-main">
+<div id="flash"></div>
+<div class="admin-head">
+  <h1>Products</h1>
+  <a class="btn btn-sm" href="product-form.html">+ Add product</a>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th></th><th>Name</th><th>Category</th><th class="num">Price</th><th>Status</th><th>Actions</th></tr></thead>
+    <tbody id="product-rows"></tbody>
+  </table>
+</div>
+</main>
+</body>
+</html>

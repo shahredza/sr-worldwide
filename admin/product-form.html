@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Product · SR Worldwide Admin</title>
+  <link rel="icon" href="../assets/images/srlogo.jpg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/admin.js" defer></script>
+</head>
+<body class="admin" data-root="../" data-page="admin-product-form">
+<header class="admin-bar" id="admin-bar"></header>
+<main id="main" class="admin-main">
+<div id="flash"></div>
+<div class="admin-head">
+  <h1 id="form-title">Add product</h1>
+  <a class="btn btn-outline btn-sm" href="products.html">← All products</a>
+</div>
+<form class="form-card" id="product-form" style="max-width:760px" novalidate>
+  <div id="form-errors"></div>
+  <div class="form-grid">
+    <div class="field span-2"><label for="name">Name</label><input id="name" type="text" maxlength="150" required></div>
+    <div class="field"><label for="category">Category</label><select id="category" required></select></div>
+    <div class="field"><label for="price">Price (RM)</label><input id="price" type="number" step="0.01" min="0" max="99999" required></div>
+    <div class="field span-2">
+      <label for="sizes">Sizes</label><input id="sizes" type="text" maxlength="100" value="S,M,L,XL" required>
+      <p class="hint">Comma separated, e.g. <code>S,M,L,XL</code>, <code>28,30,32</code> or <code>One Size</code>.</p>
+    </div>
+    <div class="field span-2"><label for="description">Description</label><textarea id="description" required></textarea></div>
+    <div class="field">
+      <label for="image">Main image</label><div id="current-image"></div>
+      <input id="image" type="file" accept="image/jpeg,image/png,image/webp">
+      <p class="hint">JPG, PNG or WebP, max 2 MB.</p>
+    </div>
+    <div class="field">
+      <label for="image_back">Second image (optional)</label><div id="current-back"></div>
+      <input id="image_back" type="file" accept="image/jpeg,image/png,image/webp">
+    </div>
+    <div class="field span-2">
+      <label class="checkbox"><input type="checkbox" id="live" checked> Live in the shop</label>
+      <label class="checkbox"><input type="checkbox" id="featured"> Featured on the home page</label>
+    </div>
+  </div>
+  <button class="btn" type="submit" id="submit">Add product</button>
+</form>
+</main>
+</body>
+</html>
