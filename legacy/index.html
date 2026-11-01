@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SR Worldwide</title>
+  <style>
+    @font-face {
+      font-family: 'GothicFont';
+      src: url('font/fontgothic.ttf') format('truetype');
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'GothicFont', Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-left a,
+    .dropdown-btn {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 15px;
+      position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-left a:hover,
+    .dropdown-btn:hover {
+      background-color: #e91e63;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 140px;
+      top: 35px;
+      left: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 5px;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+
+    .dropdown.show .dropdown-content {
+      display: flex;
+    }
+
+    .logo-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .logo-container h1 {
+      font-family: 'GothicFont', Arial, sans-serif;
+      font-size: 22px;
+      margin: 0;
+      color: white;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('background.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding-top: 100px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 100px 20px;
+    }
+
+    .testimonial {
+      margin: 20px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      .logo-container {
+        position: static;
+        transform: none;
+        margin: 10px 0;
+      }
+
+      .nav-left {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .dropdown-content {
+        top: 40px;
+      }
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    footer .footer-content img {
+      height: 50px;
+      width: 50px;
+    }
+
+    .logo-button {
+      position: fixed;
+      top: 10px;
+      right: 30px;
+      z-index: 1001;
+    }
+
+    /* Perubahan untuk logo DFD agar tampil dalam bentuk asli */
+    .dfd-logo {
+      width: auto;         /* Sesuaikan ukuran asli gambar */
+      height: auto;
+      max-width: 100px;    /* Batasi maksimal lebar agar tidak terlalu besar */
+      max-height: 100px;   /* Batasi maksimal tinggi */
+      border-radius: 0;    /* Hilangkan bulatan, tampil kotak asli */
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+      display: block;
+    }
+
+    .dfd-logo:hover {
+      opacity: 0.8;
+    }
+
+    .audio-controls {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1001;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .audio-controls button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .audio-controls button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-left">
+      <a href="about_us.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+
+      <div class="dropdown" id="shopDropdown">
+        <button class="dropdown-btn">Shop ▾</button>
+        <div class="dropdown-content">
+          <a href="tops.html">Top</a>
+          <a href="bottom.html">Bottom</a>
+          <a href="acc.html">Accessories</a>
+        </div>
+      </div>
+
+      <div class="dropdown" id="loginDropdown">
+        <button class="dropdown-btn">Login ▾</button>
+        <div class="dropdown-content">
+          <a href="admin.php">Admin</a>
+          <a href="userlogin.php">User</a>
+        </div>
+      </div>
+
+      <a href="register.php">Register</a>
+    </div>
+
+    <div class="logo-container">
+      <img src="srlogo.jpg" alt="SR Logo" />
+      <h1>SR Worldwide</h1>
+    </div>
+  </header>
+
+  <div class="logo-button">
+    <a href="http://dfdweb.scrapping.cc/poweruser39/index.html">
+      <img src="dfdhompage.png" alt="DFD Homepage Logo" class="dfd-logo"/>
+    </a>
+  </div>
+
+  <div class="hero">
+    <h2>Welcome to SR Worldwide</h2>
+    <p>High quality fashion for your everyday style.</p>
+  </div>
+
+  <audio id="background-audio" autoplay loop>
+    <source src="kendrick.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="audio-controls">
+    <button onclick="toggleAudio()">Pause / Play Music</button>
+  </div>
+
+  <section id="our-mission" style="background-color: #f7f7f7;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 20px;">What Drives Us</h2>
+    <div class="testimonial" style="max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.6;">
+      <p>
+        At SR Worldwide, our vision extends far beyond fashion. We entered this industry not merely to sell clothes,
+        but to foster a vibrant, inclusive community. We don’t just offer style — we offer a sense of identity,
+        empowerment, and belonging. Fashion is our medium, but community is our true purpose.
+      </p>
+    </div>
+  </section>
+
+  <section id="privacy-policy">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 20px;">Privacy Policy</h2>
+    <div style="max-width: 800px; margin: 0 auto; font-size: 16px; line-height: 1.6;">
+      <p>
+        This Privacy Policy outlines how SR Worldwide ("we", "us", or "our") collects, uses, and safeguards your personal information 
+        when you use our services, interact with our website (<strong>hello@srworldwide.example</strong>), or communicate with us.
+      </p>
+      <p>
+        "You" refers to all users of our site, including customers, visitors, or anyone whose data we handle. 
+        By accessing our services, you consent to the practices described in this policy. We encourage you to read it carefully.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <img src="logoikm.png" alt="IKM Logo" />
+      <img src="logomara.png" alt="MARA Logo" />
+    </div>
+    <p>&copy; 2025 SR Worldwide. All Rights Reserved. | Powered by DZA</p>
+  </footer>
+
+  <script>
+    const shopBtn = document.querySelector('#shopDropdown .dropdown-btn');
+    const shopMenu = document.getElementById('shopDropdown');
+    const loginBtn = document.querySelector('#loginDropdown .dropdown-btn');
+    const loginMenu = document.getElementById('loginDropdown');
+
+    shopBtn.addEventListener('click', () => {
+      shopMenu.classList.toggle('show');
+    });
+
+    loginBtn.addEventListener('click', () => {
+      loginMenu.classList.toggle('show');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!shopMenu.contains(e.target)) shopMenu.classList.remove('show');
+      if (!loginMenu.contains(e.target)) loginMenu.classList.remove('show');
+    });
+
+    function toggleAudio() {
+      const audio = document.getElementById('background-audio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
