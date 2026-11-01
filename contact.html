@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact · SR Worldwide</title>
+  <meta name="description" content="SR Worldwide: streetwear tops, bottoms and accessories. Design demo.">
+  <link rel="icon" href="assets/images/srlogo.jpg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body data-page="contact" class="">
+<a class="skip-link" href="#main">Skip to content</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+<div class="container flashes" id="flash"></div>
+<section class="container page">
+  <div class="contact-grid">
+    <div>
+      <p class="eyebrow">Contact Us</p>
+      <h1>Get in touch</h1>
+      <p class="muted">Questions about sizing, an order or a collaboration? Send us a message and we’ll reply by email.</p>
+      <ul class="contact-list">
+        <li><img src="assets/images/whatappslogo.png" alt=""> <span>WhatsApp · +60 12-345 6789 <small class="muted">(demo)</small></span></li>
+        <li><img src="assets/images/iglogo.png" alt=""> <span>Instagram · @srworldwide</span></li>
+        <li><img src="assets/images/facebooklogo.png" alt=""> <span>Facebook · SR Worldwide</span></li>
+        <li><img src="assets/images/xlogo.png" alt=""> <span>X · @srworldwide</span></li>
+      </ul>
+      <p class="muted" style="margin-top:16px">Email: hello@srworldwide.example</p>
+    </div>
+    <form class="form-card" id="contact-form" novalidate>
+      <div id="form-errors"></div>
+      <div class="form-grid">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" maxlength="100" autocomplete="name" required></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" maxlength="255" autocomplete="email" required></div>
+        <div class="field span-2"><label for="subject">Subject</label><input id="subject" name="subject" type="text" maxlength="150" required></div>
+        <div class="field span-2"><label for="message">Message</label><textarea id="message" name="message" maxlength="5000" required></textarea></div>
+      </div>
+      <button class="btn btn-block" type="submit">Send message</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>
