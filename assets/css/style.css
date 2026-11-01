@@ -507,3 +507,16 @@ tr:last-child td { border-bottom: 0; }
   .site-nav { top: auto; }
 }
 .flashes:empty { display: none; }
+
+/* Social links */
+.social-links { display: flex; gap: 10px; margin-top: 14px; }
+.social-links a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--line);
+  transition: transform 0.2s;
+}
+.social-links a:hover { transform: translateY(-2px); }
+.social-links img { width: 22px; height: 22px; }
+.contact-list a { display: flex; align-items: center; gap: 12px; text-decoration: none; width: 100%; }
+.contact-list a:hover span { text-decoration: underline; }

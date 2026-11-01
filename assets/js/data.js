@@ -81,3 +81,11 @@ SR.statuses = ['pending', 'paid', 'shipped', 'completed', 'cancelled'];
 
 SR.states = ['Johor', 'Kedah', 'Kelantan', 'Melaka', 'Negeri Sembilan', 'Pahang', 'Perak', 'Perlis',
   'Pulau Pinang', 'Sabah', 'Sarawak', 'Selangor', 'Terengganu', 'W.P. Kuala Lumpur', 'W.P. Labuan', 'W.P. Putrajaya'];
+
+// Shah's social media (same links as the original 2025 About Us page)
+SR.social = [
+  { name: 'Instagram', url: 'https://www.instagram.com/redzathecreator/', icon: 'images/iglogo.png' },
+  { name: 'Facebook', url: 'https://www.facebook.com/shah.redza.357', icon: 'images/facebooklogo.png' },
+  { name: 'WhatsApp', url: 'https://wa.me/601160744860', icon: 'images/whatappslogo.png' },
+  { name: 'X', url: 'https://x.com/ihateshahredza', icon: 'images/xlogo.png' },
+];

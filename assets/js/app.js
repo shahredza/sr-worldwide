@@ -126,6 +126,7 @@
         <div>
           <a class="brand brand-footer" href="${url('index.html')}"><img src="${img('images/srlogo.jpg')}" alt="" width="36" height="36"><span>SR Worldwide</span></a>
           <p class="muted">High quality fashion for your everyday style.</p>
+          <div class="social-links" data-social></div>
         </div>
         <div>
           <h2 class="footer-title">Shop</h2>
@@ -499,6 +500,9 @@
   if (!document.body.classList.contains('admin')) {
     renderHeader();
     renderFooter();
+    $$('[data-social]').forEach((el) => {
+      el.innerHTML = SR.social.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(s.name)}" title="${esc(s.name)}"><img src="${img(s.icon)}" alt=""></a>`).join('');
+    });
     bindUi();
     pages[PAGE]?.();
   }
