@@ -494,3 +494,16 @@ tr:last-child td { border-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- Design-demo additions ---------- */
+.header-inner { position: relative; }
+.site-nav { top: 100%; }
+.demo-banner {
+  background: var(--grey); color: #fff;
+  font-size: 0.78rem; letter-spacing: 0.04em; text-align: center;
+  padding: 4px 16px;
+}
+@media (min-width: 900px) {
+  .site-nav { top: auto; }
+}
+.flashes:empty { display: none; }

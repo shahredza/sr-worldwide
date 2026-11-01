@@ -1,5 +1,10 @@
 # SR Worldwide — project context for Claude Code
 
+> **Update (Nov 2026):** Shah decided the `main` branch is a **design-only static site** (HTML/CSS/JS,
+> no PHP, no database, no MAMP) hosted on GitHub Pages. Product data is in `assets/js/data.js`; cart,
+> demo login, orders and messages live in the browser's localStorage. The full PHP + MySQL build described
+> below is kept on the `php-mysql-version` branch. The original brand assets moved to `legacy/assets/`.
+
 ## What this is
 SR Worldwide is a fashion / streetwear e-commerce website (tops, bottoms, accessories).
 It started as Shah Redza's Semester 1 group project (DFD10033 Big Data Programming Fundamental,

@@ -1,12 +1,6 @@
 # Private reference material (real user data, school documents) - never commit
 _reference/
+START_HERE.md
 .env
-*.sql.bak
 .DS_Store
 node_modules/
-vendor/
-includes/config.php
-config.php
-public/assets/uploads/*
-!public/assets/uploads/.gitkeep
-!public/assets/uploads/.htaccess
